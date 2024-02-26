@@ -1,0 +1,90 @@
+﻿@model ShopApp.WebUI.Models.ProductListModel
+@{
+    ViewData["Title"] = "Urunler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>ÜRÜNLER</h1>
+<hr />
+
+
+@if(Model.Products.Count()>0)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Ürün Url</th>
+            <th>Stok</th>
+            <th>Fiyat</th>
+            <th>Kategori</th>
+            <th>İşlemler</th>
+            
+           
+        </tr>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Name</td>
+                <td>
+                    <img src="~/img/@item.ImageUrl" width="80" />
+                </td>
+                <td>@item.Stock</td>
+                <td>@item.Price</td>
+               <td></td>
+                
+                <td>
+                    <a href="/Product/EditProduct/@item.Id" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a>
+                    <form method="post" action="/Product/DeleteProduct" onsubmit="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')" style="display:inherit">
+                        <input type="hidden" name="productId" value="@item.Id" />
+                        <button type="submit" class="btn mb-1 btn-rounded btn-outline-danger">Sil</button>
+                    </form>
+                
+                
+                </td>
+                
+            </tr>
+        }
+    </table>
+    <a href="/Product/CreateProduct/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Ürün Ekle</a>
+
+}
+else
+{
+
+    <div class="alert alert-warning">
+        <h4>Ürün Yok</h4>
+
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

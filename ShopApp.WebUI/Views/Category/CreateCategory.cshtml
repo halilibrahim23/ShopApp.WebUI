@@ -1,0 +1,20 @@
+﻿@model CategoryModel
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kategori Oluştur</h1>
+<hr />
+<form method="post">
+    <label>Kategori Adı</label>
+    <input type="text" asp-for="CategoryName" class="form-control" />
+    <br />
+   
+    
+
+
+    <button type="submit" value="Ekle" class="btn btn-primary">Kategori Ekle</button>
+</form>
+
+

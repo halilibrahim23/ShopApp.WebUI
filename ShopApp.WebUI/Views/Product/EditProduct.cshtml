@@ -1,0 +1,26 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "EditProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Ürün Güncelleme</h1>
+<hr />
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Ürün Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Ürün Stok</label>
+    <input type="text" asp-for="Stock" class="form-control" />
+    <br />
+    <label>Ürün Fiyat</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <br />
+    
+    <button class="btn btn-outline-success">Ürünü Güncelle</button>
+</form>
+
